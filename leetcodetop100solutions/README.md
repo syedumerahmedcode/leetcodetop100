@@ -1,6 +1,6 @@
-## Getting Started
+## Leet code top 100
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project contains solutions to top 100 liked leet code questions(only easy and medium level).
 
 ## Folder Structure
 
