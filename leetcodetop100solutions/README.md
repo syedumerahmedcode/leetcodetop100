@@ -2,6 +2,11 @@
 
 This project contains solutions to top 100 liked leet code questions(only easy and medium level).
 
+## Website
+
+https://leetcode.com/studyplan/top-100-liked/
+
+
 ## Folder Structure
 
 The workspace contains two folders by default, where:
