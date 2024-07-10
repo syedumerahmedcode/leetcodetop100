@@ -4,6 +4,13 @@ import java.util.Stack;
 
 public class ValidParameters {
 
+    private static final char CLOSING_SQUARE_BRACKET = ']';
+    private static final char CLOSING_CURLY_BRACKET = '}';
+    private static final char CLOSING_ROUND_BRACKET = ')';
+    private static final char OPENING_CURLY_BRACKET = '{';
+    private static final char OPENING_SQUARE_BRACKET = '[';
+    private static final char OPENING_ROUND_BRACKET = '(';
+
     /**
      * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
@@ -39,36 +46,36 @@ Constraints:
     s consists of parentheses only '()[]{}'.
 
 
-     * @param s
+     * @param input
      * @return
      */
-    public boolean isValid(String s) {
-        if(s.length()==0){
+    public boolean isValid(String input) {
+        if(input.length()==0){
             return true;
         }else{
-            Stack<Character> st=new Stack<>();
-            return valid(s,st);
+            Stack<Character> stackOfInputCharacters=new Stack<>();
+            return valid(input,stackOfInputCharacters);
         }
     }
 
-    private static boolean valid(String s, Stack<Character>  st){
-        for(int i=0;i<s.length();i++){
-            char currentChar=s.charAt(i);
-            if(currentChar=='(' || currentChar== '[' || currentChar=='{'){
-                st.push(currentChar);
+    private static boolean valid(String input, Stack<Character>  stackOfInputCharacters){
+        for(int i=0;i<input.length();i++){
+            char currentChar=input.charAt(i);
+            if(currentChar==OPENING_ROUND_BRACKET || currentChar== OPENING_SQUARE_BRACKET || currentChar==OPENING_CURLY_BRACKET){
+                stackOfInputCharacters.push(currentChar);
             }else{
-                if(st.isEmpty()) {
+                if(stackOfInputCharacters.isEmpty()) {
                     return false;
                 }
-                char topChar=st.pop();
-                if((currentChar==')' && topChar!='(') ||
-                (currentChar=='}' && topChar!='{') ||
-                (currentChar==']' && topChar!='[') ){
+                char topChar=stackOfInputCharacters.pop();
+                if((currentChar==CLOSING_ROUND_BRACKET && topChar!=OPENING_ROUND_BRACKET) ||
+                (currentChar==CLOSING_CURLY_BRACKET && topChar!=OPENING_CURLY_BRACKET) ||
+                (currentChar==CLOSING_SQUARE_BRACKET && topChar!=OPENING_SQUARE_BRACKET) ){
                     return false;
                 }
             }            
         }
-        return st.isEmpty();
+        return stackOfInputCharacters.isEmpty();
     }
 
 }
