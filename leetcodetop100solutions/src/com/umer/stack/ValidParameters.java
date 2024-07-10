@@ -1,5 +1,7 @@
 package com.umer.stack;
 
+import java.util.Stack;
+
 public class ValidParameters {
 
     /**
@@ -28,7 +30,8 @@ Example 3:
 Input: s = "(]"
 Output: false
 
- 
+// Community sollution considered: https://leetcode.com/problems/valid-parentheses/solutions/5367673/java-solution-stack/?envType=study-plan-v2&envId=top-100-liked
+
 
 Constraints:
 
@@ -40,7 +43,32 @@ Constraints:
      * @return
      */
     public boolean isValid(String s) {
-        
+        if(s.length()==0){
+            return true;
+        }else{
+            Stack<Character> st=new Stack<>();
+            return valid(s,st);
+        }
+    }
+
+    private static boolean valid(String s, Stack<Character>  st){
+        for(int i=0;i<s.length();i++){
+            char currentChar=s.charAt(i);
+            if(currentChar=='(' || currentChar== '[' || currentChar=='{'){
+                st.push(currentChar);
+            }else{
+                if(st.isEmpty()) {
+                    return false;
+                }
+                char topChar=st.pop();
+                if((currentChar==')' && topChar!='(') ||
+                (currentChar=='}' && topChar!='{') ||
+                (currentChar==']' && topChar!='[') ){
+                    return false;
+                }
+            }            
+        }
+        return st.isEmpty();
     }
 
 }
