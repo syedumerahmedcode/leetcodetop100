@@ -2,7 +2,7 @@ package com.umer.stack;
 
 import java.util.Stack;
 
-public class ValidParameters {
+public class ValidParametersDifficultyLevelEasy {
 
     private static final char CLOSING_SQUARE_BRACKET = ']';
     private static final char CLOSING_CURLY_BRACKET = '}';

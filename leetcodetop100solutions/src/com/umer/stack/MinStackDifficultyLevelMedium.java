@@ -44,9 +44,9 @@ Constraints:
 
 
  */
-public class MinStack {
+public class MinStackDifficultyLevelMedium {
 
-    public MinStack() {
+    public MinStackDifficultyLevelMedium() {
         
     }
     
