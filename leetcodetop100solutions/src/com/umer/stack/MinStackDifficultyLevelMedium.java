@@ -44,36 +44,39 @@ Constraints:
 Methods pop, top and getMin operations will always be called on non-empty stacks.
 At most 3 * 104 calls will be made to push, pop, top, and getMin.
 
+aSolution: https://leetcode.com/problems/min-stack/solutions/3685256/code-with-proper-comment-easy-solution/?envType=study-plan-v2&envId=top-100-liked
+From: spartan1 in sub comments
+https://leetcode.com/problems/min-stack/solutions/4865769/two-approach-fastest-solution-in-java/?envType=study-plan-v2&envId=top-100-liked[DONE]
+https://leetcode.com/problems/min-stack/solutions/4439842/3ms-java-beats-100-easy-solution-with-explanation/?envType=study-plan-v2&envId=top-100-liked
+
 
 */
 public class MinStackDifficultyLevelMedium {
     
     Stack<Integer> stack=new Stack<>();
-    Stack<Integer> min=new Stack<>();
+    Stack<Integer> min = new Stack<>();
     
     public MinStackDifficultyLevelMedium() {
-        
+       
     }
     
     public void push(int val) {
-        stack.push(val);
-        if(min.empty()){
+        if(stack.size()==0){
+            stack.push(val);
             min.push(val);
         }else{
-            if(val<min.peek()){
+            stack.push(val);
+            if(min.peek()<val){
+                min.push(min.peek());
+            }else{
                 min.push(val);
             }
         }
     }
     
     public void pop() {
-        if(stack.peek()==min.peek()){
-            min.pop();
-        }
         stack.pop();
-        // if (min>stack.peek()) {
-            //     min=stack.peek();
-            // }
+        min.pop();
         }
         
         public int top() {
