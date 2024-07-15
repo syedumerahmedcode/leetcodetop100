@@ -1,5 +1,7 @@
 package com.umer.stack;
 
+import java.util.Stack;
+
 /**
  * Given an encoded string, return its decoded string.
 
@@ -38,5 +40,14 @@ Constraints:
 
  */
 public class DecodeStringDifficultyLevelMedium {
+    public String decodeString(String input) {
+        Stack<String> inputPart=new Stack<>();
+        int NumberOfRepetitions=0;
+
+        StringBuilder decodedOutput=new StringBuilder();
+        
+
+        
+    }
 
 }
